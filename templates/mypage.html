@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>마이 페이지</title>
+  <style>
+    body{
+      background: #FAFAFA;
+    }
+    .wrap{
+      width:800px;
+      height:500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      margin: 130px auto 0 auto;
+      border: transparent;
+      border-radius: 8px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    }
+    .info{
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: center;
+      width: 100%;
+      padding: 65px 60px 0 80px;
+    }
+    #content{
+      width: 100%;
+      padding: 10px 60px 10px 80px;
+    }
+    .box {
+      width: 150px;
+      height: 150px; 
+      border-radius: 70%;
+      overflow: hidden;
+    }
+    .picture {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .info-content{
+      padding-top: 25px;
+      width: 100%;
+    }
+    .info-nickname{
+      margin-left:20px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .info-email{
+      margin-left:20px;
+      font-size: 16px;
+    }
+    .save-button{
+      width: 100px;
+      height: 48px;
+      margin: 10px auto 0 auto;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size:16px;
+      color: white;
+      border:none;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      background-color: #F50000;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="info">
+      <div class="box" style="background: #BDBDBD;">
+        <img class="picture" src="../static/cat.jpeg">
+      </div>
+      <div class="profile">
+        <div class="info-nickname">Nickname</div>
+        <div class="info-email">hanghae99@gmail.com</div>
+      </div>
+    </div>
+    <div class="info-content">
+      <div class="row col-12" id="content">
+        <div class="col-3">
+          <label for="inputNickname6" class="col-form-label">Nickname</label>
+        </div>
+        <div class="col-7">
+          <input type="text" id="inputNickname" class="form-control" aria-describedby="nicknameHelpInline">
+        </div>
+        <!-- <div class="col-auto">
+          <span id="passwordHelpInline" class="form-text">
+            Must be 8-20 characters long.
+          </span>
+        </div> -->
+      </div>
+      <div class="row col-12" id="content">
+        <div class="col-3">
+          <label for="inputEmail6" class="col-form-label">Email</label>
+        </div>
+        <div class="col-7">
+          <input type="email" id="inputEmail" class="form-control" aria-describedby="emailHelpInline" placeholder="hanghae99@gmail.com" disabled="true">
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="save-button">저장 하기</button>
+  </div>
+</body>
+</html>

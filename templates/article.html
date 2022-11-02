@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <!------------------------------------------------------------->
+
+    <title>토이프로젝트(업데이트)</title>
+</head>
+<style>
+
+    body{
+        margin: 0;
+        padding: 0;
+    }
+
+    .back{
+        position:relative;
+        width:100%;
+        height: 100vh;
+        background-color:gray;
+    }
+
+    .art_sign{
+        position: absolute;
+        width: 95%;
+        max-width: 1138px;
+        height: 913px;
+        top:50%;
+        left:50%;
+        background-color: #ffff;
+        transform: translate(-50%, -50%);
+    }
+
+    .art_title{
+        display: block;
+        max-width: 926px;
+        width: 95%;
+        height:  92px;
+        text-align: center;
+        padding-top: 2%;
+        border-radius: 16px;
+        margin: 5% auto;
+        background-color: gray;
+    }
+
+    .input-group{
+        width: 950px;
+        height: 78.58px;
+        margin-left: 7%;
+    }
+
+    .input-group-text{
+        display: block;
+        width: 95%;
+        max-width: 147px;
+        border-radius: 16px;
+    }
+    .input-group-text p{
+           margin-top: 14%;
+    }
+
+    .form-select{
+        width: 100%;
+    }
+
+    .input2{
+        margin-top: 2.5%;
+    }
+
+    .content_title{
+        display: block;
+        font-size:1.5rem ;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        padding-left: 5%;
+
+    }
+
+    .mybtn{
+        position: absolute;
+        bottom: 10%;
+        left: 38%
+    }
+
+    .btn-primary{
+        background-color: red;
+        border: none;
+    }
+
+</style>
+<script>
+
+     function save_text() {
+            let title = $('#title').val()
+            let name = $('#name').val()
+            let tag = $('#tag').val()
+            let content = $('#content').val()
+            if (title == "" || name == "" || tag == "" || content == "") {
+                 alert("빈칸을 채워주세요")
+            }
+            else{
+                $.ajax({
+                type: "POST",
+                url: "/article/post",
+                data: {'title_give':title, 'tag_give':tag, 'content_give':content, 'name_give':name},
+                success: function (response) {
+                    alert(response["msg"])
+                    window.location.replace("/home")
+                }})
+
+        }}
+
+
+</script>
+<body>
+    <section id="back" class="back">
+        <div class="art_sign">
+            <h2 class="art_title">항해99에 대한 이야기를 나눠주세요</h2>
+            <form>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text" id="inputGroup-sizing-lg"><p>제목</p></span>
+                    <input id="title" type="text" class="form-control" aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-lg"  required placeholder="제목을 입력해주세요.">
+                       <span class="input-group-text" id="inputGroup-sizing-lg"><p>작성자</p></span>
+                    <input id="name" type="text" class="form-control" aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-lg" required placeholder="작성자명을 입력해주세요.">
+                </div>
+                  <div class="input-group input-group-lg input2">
+                    <span class="input-group-text" id="inputGroup-sizing-lg"><p>태그</p></span>
+                      <select required id="tag" class="form-select" aria-label="Default select example">
+                          <option value="" disabled selected>태그를 선택해주세요</option>
+                          <option value="기술">기술</option>
+                          <option value="커리큘럼">커리큘럼</option>
+                          <option value="수다">수다</option>
+                      </select>
+                </div>
+                <h2 class="content_title"><img src="../static/img/Article.png" alt="이미지">본문을 입력해주세요</h2>
+                <div class="input-group">
+                    <textarea id="content" class="form-control" name="content" rows="10" cols="150" placeholder="본문을 입력해주세요." required></textarea>
+                </div>
+                <div class="mybtn">
+                    <button type="button" class="btn btn-primary btn-lg" onclick="save_text()">등록하기</button>
+                    <button type="button" class="btn btn-secondary btn-lg" onclick="location.href='/home'">취소하기</button>
+                </div>
+            </form>f
+            </div>
+        </div>
+    </section>
+</body>
+</html>

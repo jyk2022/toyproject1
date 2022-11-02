@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <script src= "https://kit.fontawesome.com/dc0708434c.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/dc0708434c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <!-- SWIPER -->
+      <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <title>항해99 시크릿 커뮤니티</title>
+  </head>
+  <body>
+    <input type="checkbox" id="side-bar__on" style="display: none" />
+    <div id="side-bar">
+      <div id="side-bar__clock">
+        <h1 id="side-bar__clock__date">Oct 19 2022</h1>
+        <div id="side-bar__clock__main">
+          <h3>pm</h3>
+          <h2>05:05</h2>
+        </div>
+      </div>
+      <div id="side-bar__link">
+        <div id="side-bar__link__homebtn">Home</div>
+        <div id="side-bar__link__writebtn">글 쓰기</div>
+      </div>
+      <div id="side-bar__best-contents">
+        <h1>HOT 게시글</h1>
+        <div></div>
+      </div>
+      <iframe
+        id="side-bar__music"
+        src="https://www.youtube.com/embed/zStQ_r6woVE?controls=0"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <div id="side-bar__menu">
+{#        <div style="display: none">마이페이지</div>#}
+          <div id="logoutbtn">로그아웃</div>
+      </div>
+    </div>
+
+    <div id="menubtn">
+      <label for="side-bar__on">
+        <i id="menubtn-icon" class="fa-solid fa-bars"></i>
+      </label>
+    </div>
+    <label for="side-bar__on" class="bg"></label>
+    <div id="main-screen">
+      <div id="main-screen__contents-list">
+        <table id="main-screen__contents-list__table">
+          <thead>
+            <tr>
+              <th><span>번호</span></th>
+              <th><span>분류</span></th>
+              <th><span>제목</span></th>
+              <th><span>작성자</span></th>
+              <th><span>조회수</span></th>
+            </tr>
+          </thead>
+          <tbody id="contents-body">
+
+          </tbody>
+        </table>
+          <div id="main-screen__contents-list__acticle">
+              <div id="main-screen__contents-list__acticle__exit"><i class="fa-solid fa-xmark"></i></div>
+              <div id="main-screen__contents-list__acticle__title">[태그]제목</div>
+              <div id="main-screen__contents-list__acticle__headline">작성자 | <i class="fa-solid fa-comment"></i>5 <i class="fa-regular fa-eye"></i>110</div>
+              <div id="main-screen__contents-list__acticle__content">본문</div>
+          </div>
+      </div>
+      <div id="main-screen__widget">
+        <div id="main-screen__widget__news">
+            <h1>IT NEWS</h1>
+            <ul id="main-screen__widget__news__list">
+                <li>
+                <a href="https://v.daum.net/v/20221023175145078" target="_blank">"나 말고 애인이 또 있어?" '바람'난 여친들 여기 다 모였네 <span>-헤럴드경제</span></a>
+              </li>
+            </ul>
+        </div>
+        <div id="main-screen__widget__todos">
+          <span>To-Do</span>
+          <ul id="main-screen__widget__todos__list">
+            <li>밥 먹기<button class="fa-solid fa-trash"></button></li>
+            <li>공부 하기<button class="fa-solid fa-trash"></button></li>
+          </ul>
+          <form id="main-screen__widget__todos__submit"
+          onsubmit="save_todo()">
+            <input
+              type="text"
+              required
+              maxlength="20"
+              placeholder="할 일을 적어주세요"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div id="footer__inner" class="swiper">
+        <ul id="footer__reviewBox" class="swiper-wrapper">
+        </ul>
+      </div>
+    </footer>
+    <script>
+      const checkbox = document.querySelector("#side-bar__on");
+      const menubtn = document.querySelector("#menubtn-icon");
+
+      function iconChange() {
+        if (checkbox.checked == true) {
+          menubtn.className = "fa-solid fa-xmark";
+        } else {
+          menubtn.className = "fa-solid fa-bars";
+        }
+      }
+      checkbox.addEventListener("click", iconChange);
+    </script>
+    <script src="../static/board.js"></script>
+    <script src="../static/clock.js"></script>
+    <script src="../static/news.js"></script>
+    <script src="../static/footer.js"></script>
+    <script src="../static/todos.js"></script>
+    <script src="../static/logout.js"></script>
+    <script src="../static/write.js"></script>
+    <script src="../static/home.js"></script>
+  </body>
+</html>

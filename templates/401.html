@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>로그인 만료</title>
+  <script>
+      $(document).ready(function () {
+          expired_login();
+      });
+      function expired_login() {
+          $.ajax({
+              type: "GET",
+              url: "/401",
+              data: {},
+              success: function (response) {
+                  // response
+                  console.log(response);
+                  alert('로그인 만료')
+                  window.location.href = '/';
+              },
+          });
+      }
+  </script>
+</head>
+<body>
+</body>
+</html>
